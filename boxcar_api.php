@@ -73,7 +73,7 @@ class boxcar_api {
 	 * @param string $secret your api secret
 	 * @param string $default_icon_url url to a 57x57 icon to use with a message
 	 */
-	public function instance ($api_key, $secret, $default_icon = null) {
+	public static function factory ($api_key, $secret, $default_icon = null) {
 		return new self($api_key, $secret, $default_icon);
 	}
 	
