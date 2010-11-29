@@ -101,9 +101,9 @@ class boxcar_api {
 	 * @param string $message the message body
 	 * @param string $id an optional unique id, will stop the same message getting sent twice
 	 * @param string $payload Optional; The payload to be passed in as part of the redirection URL.
-	 *							Keep this as short as possible. If your redirection URL contains "::user::" in it,
-	 *							this will replace it in the URL. An example payload would be the users username, to
-	 *							take them to the appropriate page when redirecting
+	 *                        Keep this as short as possible. If your redirection URL contains "::user::" in it,
+	 *                        this will replace it in the URL. An example payload would be the users username, to
+	 *                        take them to the appropriate page when redirecting
 	 * @param string $source_url Optional; This is a URL that may be used for future devices. It will replace the redirect payload.
 	 * @param string $icon  Optional; This is the URL of the icon that will be shown to the user. Standard size is 57x57.
 	 */
@@ -118,9 +118,9 @@ class boxcar_api {
 	 * @param string $message the message body
 	 * @param string $id an optional unique id, will stop the same message getting sent twice
 	 * @param string $payload Optional; The payload to be passed in as part of the redirection URL.
-	 *							Keep this as short as possible. If your redirection URL contains "::user::" in it,
-	 *							this will replace it in the URL. An example payload would be the users username, to
-	 *							take them to the appropriate page when redirecting
+	 *                        Keep this as short as possible. If your redirection URL contains "::user::" in it,
+	 *                        this will replace it in the URL. An example payload would be the users username, to
+	 *                        take them to the appropriate page when redirecting
 	 * @param string $source_url Optional; This is a URL that may be used for future devices. It will replace the redirect payload.
 	 * @param string $icon  Optional; This is the URL of the icon that will be shown to the user. Standard size is 57x57.
 	 */
@@ -136,9 +136,9 @@ class boxcar_api {
 	 * @param string $message the message body
 	 * @param string $id an optional unique id, will stop the same message getting sent twice
 	 * @param string $payload Optional; The payload to be passed in as part of the redirection URL.
-	 *							Keep this as short as possible. If your redirection URL contains "::user::" in it,
-	 *							this will replace it in the URL. An example payload would be the users username, to
-	 *							take them to the appropriate page when redirecting
+	 *                        Keep this as short as possible. If your redirection URL contains "::user::" in it,
+	 *                        this will replace it in the URL. An example payload would be the users username, to
+	 *                        take them to the appropriate page when redirecting
 	 * @param string $source_url Optional; This is a URL that may be used for future devices. It will replace the redirect payload.
 	 * @param string $icon Optional; This is the URL of the icon that will be shown to the user. Standard size is 57x57.
 	 */
@@ -149,15 +149,15 @@ class boxcar_api {
 		}
 			
 		$notification = array(
-			'token'									=> $this->api_key,
-			'secret'								=> $this->secret,
-			'email'									=> !is_null($email) ? md5($email) : null,
-			'notification[from_screen_name]'		=> $name,
-			'notification[message]'					=> $message,
-			'notification[from_remote_service_id]'	=> $id,
-			'notification[redirect_payload]'		=> $payload,
-			'notification[source_url]'				=> $source_url,
-			'notification[icon_url]'				=> $icon,
+			'token'                                 => $this->api_key,
+			'secret'                                => $this->secret,
+			'email'                                 => !is_null($email) ? md5($email) : null,
+			'notification[from_screen_name]'        => $name,
+			'notification[message]'                 => $message,
+			'notification[from_remote_service_id]'  => $id,
+			'notification[redirect_payload]'        => $payload,
+			'notification[source_url]'              => $source_url,
+			'notification[icon_url]'                => $icon,
 			);
 		
 		// unset the null ones...
