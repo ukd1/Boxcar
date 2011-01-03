@@ -89,7 +89,7 @@ class boxcar_api {
 		if ($result['http_code'] === 404) {
 			throw new boxcar_exception('User not found', $result['http_code']);
 		} else {
-			return $this->default_response_hander($result);
+			return $this->default_response_handler($result);
 		}
 	}
 	
