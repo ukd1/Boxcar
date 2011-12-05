@@ -84,7 +84,7 @@ class boxcar_api {
 	 * @return bool 
 	 */
 	public function invite ($email) {
-		$result = $this->http_post('subscribe', array('email' => md5($email)));
+		$result = $this->http_post('notifications/subscribe', array('email' => $email));
 		
 		if ($result['http_code'] === 404) {
 			throw new boxcar_exception('User not found', $result['http_code']);
@@ -96,7 +96,7 @@ class boxcar_api {
 	/**
 	 * Send a notification
 	 *
-	 * @param string $emailThe users MD5'd e-mail address
+	 * @param string $email The user's e-mail address
 	 * @param string $name the name of the sender
 	 * @param string $message the message body
 	 * @param string $id an optional unique id, will stop the same message getting sent twice
@@ -108,7 +108,7 @@ class boxcar_api {
 	 * @param string $icon  Optional; This is the URL of the icon that will be shown to the user. Standard size is 57x57.
 	 */
 	public function notify ($email, $name, $message, $id = null, $payload = null, $source_url = null, $icon = null) {
-		return $this->do_notify('notifications/broadcast', $email, $name, $message, $id, $payload, $source_url, $icon);
+		return $this->do_notify('notifications', $email, $name, $message, $id, $payload, $source_url, $icon);
 	}
 	
 	/**
@@ -151,7 +151,7 @@ class boxcar_api {
 		$notification = array(
 			'token'                                 => $this->api_key,
 			'secret'                                => $this->secret,
-			'email'                                 => !is_null($email) ? md5($email) : null,
+			'email'                                 => $email,
 			'notification[from_screen_name]'        => $name,
 			'notification[message]'                 => $message,
 			'notification[from_remote_service_id]'  => $id,
@@ -205,7 +205,7 @@ class boxcar_api {
 				throw new boxcar_exception('Request failed (General)', $result['http_code']);
 				break;
 			
-			// Unkown code
+			// Unknown code
 			default:
 				throw new boxcar_exception('Unknown response', $result['http_code']);
 				break;
